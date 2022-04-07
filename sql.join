@@ -1,0 +1,83 @@
+ 1
+
+
+
+SELECT
+	   MAX(E.employee_id) AS Employee_id,Max(convert(varchar,E.name)) AS Name, Max(convert(varchar, R.name)) AS Religion,
+	   ISNULL(Max(convert(varchar, A.[Address])), '-') AS [Address],
+	   ISNULL(sum(p.[amount]), 0) AS Amount
+	   FROM
+	   [tbl_employee] E
+	   LEFT JOIN
+	    [tbl_address] A ON A.employee_id = E.employee_id AND A.seq =1
+		LEFT JOIN 
+		[tbl_religion] R ON R.[religion_id]=E.religion_id
+		LEFT JOIN 
+		[tbl_payroll1] P ON P.employee_id= E.employee_id AND P.type ='THR'
+		group by E.employee_id
+
+
+
+2    
+	  SELECT
+	   MAX(E.employee_id) AS Employee_id,Max(convert(varchar,E.name)) AS Name, Max(convert(varchar, R.name)) AS Religion,
+	   ISNULL(Max(convert(varchar, A.[Address])), '-') AS [Address],
+	   ISNULL(sum(p.[amount]), 0) AS Amount
+	   FROM
+	   [tbl_employee] E
+	   LEFT JOIN
+	    [tbl_address] A ON A.employee_id = E.employee_id AND A.seq =1
+		LEFT JOIN 
+		[tbl_religion] R ON R.[religion_id]=E.religion_id
+		LEFT JOIN 
+		[tbl_payroll1] P ON P.employee_id= E.employee_id 
+		group by E.employee_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3  function segitiga4(baris) {
+  let pola = '';
+
+  for (let i = 1; i <= baris; i++) {
+    for (let j = baris - 1; j >= i; j--) {
+      pola += ' ';
+    }
+
+    for (let k = 1; k <= i; k++) {
+      pola += '*';
+    }
+
+    for (let m = 1; m <= i - 1; m++) {
+      pola += '*';
+    }
+
+    pola += '\n';
+  }
+
+  return pola;
+}
+
+console.log(segitiga4(5));
+
+
+
+
+
+
+
+
+
+
+4. Jawabannya 20 Menit
+     20=2, 40=8, 80=16, 100=36, 120=64
